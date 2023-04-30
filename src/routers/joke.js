@@ -3,6 +3,8 @@ const {ObjectId} = require('mongodb')
 const Joke = require('../models/joke')
 const router = new express.Router()
 
+router.get('/', (req, res) => res.redirect('/1'))
+
 router.get('/:id', async (req, res) =>{
     const id = req.params.id
     let jokes;
@@ -23,8 +25,5 @@ router.get('/:id', async (req, res) =>{
     }
 })
 
-router.get('/', (req, res) => {
-    res.status(404).send({Tip:'Add an id or a number to the url and hit enter to see the result. Example: url/5'})
-})
 
 module.exports = router
